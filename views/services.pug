@@ -1,0 +1,101 @@
+doctype html
+head
+    title Services
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet' href='../Styles/header-footer.css')
+    link(rel='stylesheet' href='../Styles/styles.css')
+    link(rel='shortcut icon' href='../Media/favicon.ico')
+#covidInfo.alert.alert-danger.alert-dismissible.fade.show.text-center
+    button.close(type='button' data-dismiss='alert') &times;
+    |     Covid-19 changed everything. We are now introducing pet cargo system!
+    a.alert-link(href='cargopet.html') Click here to get more information!
+header
+    img#IG_picture.rounded(src='../Media/injuredGood.png' alt='IG Picture')
+    form.form-inline(action='http://www.google.com/search' method='get')
+        div
+            label
+                input.form-control(type='text' name='q' placeholder='Search on Google...')
+        button.btn.btn-primary(type='submit' value='Search') Search
+    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.container-fluid
+        a.navbar-brand(href='../index.html')
+            img(src='../Media/favicon.ico' alt='logo' style='width: 40px;')
+        // Links
+        ul.navbar-nav
+            li
+                a.nav-link(href='../index.html') IG VETERINARY
+            li.nav-item
+                a.nav-link(href='blog.html') Blog
+            li.nav-item
+                a.nav-link.active(href='services.html') Services
+            li.nav-item
+                a.nav-link(href='team.html') Team
+            li.nav-item
+                a.nav-link(href='gallery.html') Gallery
+            li.nav-item
+                a.nav-link(href='contactme.html') Contact Us
+            li.nav-item
+                a.nav-link(href='registration.html') Register
+main.row.container-fluid
+    aside.col-sm-3.container.text-center
+        a(href='contactme.html')
+            figure
+                img.figure-img.container.rounded(src='../Media/slider-logo.png' style='margin-top: 3em ' alt='Contact Us!')
+                figcaption Contact Us!
+    section.col-sm-6.container
+        h2.text-center SERVICES
+        ul.list-group
+            li.list-group-item.list-group-item-dark Urgent Care
+            li.list-group-item.list-group-item-dark Wellness
+            li.list-group-item.list-group-item-dark Preventative
+            li.list-group-item.list-group-item-dark
+                | Surgical
+                ul.list-group
+                    li.list-group-item.list-group-item-secondary Orthopedic (Morgantown, WV)
+                    li.list-group-item.list-group-item-secondary TTA Cruciate Repairs (Morgantown, WV)
+                    li.list-group-item.list-group-item-secondary Soft tissue surgeries (Morgantown, WV)
+            li.list-group-item.list-group-item-dark Dental
+            li.list-group-item.list-group-item-dark Diagnostics
+            li.list-group-item.list-group-item-dark Ultrasound
+            li.list-group-item.list-group-item-dark Boarding (Kingwood, WV)
+            li.list-group-item.list-group-item-dark Grooming (Kingwood, WV)
+            li.list-group-item.list-group-item-dark Chemotherapy (Morgantown, WV)
+    aside.col-sm-3.text-center.container
+        a(href='team.html')
+            figure(style='margin-top: 3em ')
+                img.figure-img.container.rounded(src='../Media/team.png' alt='Team')
+                figcaption Our Team
+    br
+    aside.row.container-fluid.text-center
+        .col-sm-6
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item(src='https://www.youtube.com/embed/61PQbdEa9Xg')
+            br
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item(src='https://www.youtube.com/embed/_TyDt4FDJSY')
+        .col-sm-6
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item(src='https://www.youtube.com/embed/5osV7wN-j-k')
+            br
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item(src='https://www.youtube.com/embed/s4IqW3356xc')
+// Footer
+footer.page-footer.font-small.indigo
+    form(style='text-align: center')
+        button.btn.btn-primary.btn-lg(formaction='https://www.pinterest.com' type='submit')
+            i.fa.fa-pinterest
+        button.btn.btn-primary.btn-lg(formaction='https://www.facebook.com' type='submit')
+            i.fa.fa-facebook
+        button.btn.btn-primary.btn-lg(formaction='https://twitter.com' type='submit')
+            i.fa.fa-twitter
+        button.btn.btn-primary.btn-lg(formaction='https://instagram.com' type='submit')
+            i.fa.fa-instagram
+    .footer-copyright.text-center.py-3
+        | All Rights Reserved &copy; IG Company
+    // Copyright
+// Footer

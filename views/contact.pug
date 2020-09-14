@@ -1,6 +1,6 @@
 doctype html
 head
-    title About Us
+    title Contact Us!
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
@@ -8,23 +8,23 @@ head
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-    link(rel='stylesheet' href='/stylesheets/header-footer.css')
-    link(rel='stylesheet' href='/stylesheets/styles.css')
+    link(rel='stylesheet' href='../Styles/header-footer.css')
+    link(rel='stylesheet' href='../Styles/styles.css')
     link(rel='shortcut icon' href='../Media/favicon.ico')
 #covidInfo.alert.alert-danger.alert-dismissible.fade.show.text-center
     button.close(type='button' data-dismiss='alert') &times;
     |     Covid-19 changed everything. We are now introducing pet cargo system!
     a.alert-link(href='cargopet.html') Click here to get more information!
 header
-    img#IG_picture.rounded(src='/images/injuredGood.png' alt='IG Picture')
+    img#IG_picture.rounded(src='../Media/injuredGood.png' alt='IG Picture')
     form.form-inline(action='http://www.google.com/search' method='get')
         div
-            label
-                input.form-control(type='text' name='q' placeholder='Search on Google...')
+            label(for='search')
+            input#search.form-control(type='text' name='q' placeholder='Search on Google...')
         button.btn.btn-primary(type='submit' value='Search') Search
     nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.container-fluid
         a.navbar-brand(href='../index.html')
-            img(src='/images/favicon.ico' alt='logo' style='width: 40px;')
+            img(src='../Media/favicon.ico' alt='logo' style='width: 40px;')
         // Links
         ul.navbar-nav
             li
@@ -34,34 +34,56 @@ header
             li.nav-item
                 a.nav-link(href='services.html') Services
             li.nav-item
-                a.nav-link.active(href='team.html') Team
+                a.nav-link(href='team.html') Team
             li.nav-item
                 a.nav-link(href='gallery.html') Gallery
-            li.nav-item
+            li.nav-item.active
                 a.nav-link(href='contactme.html') Contact Us
             li.nav-item
                 a.nav-link(href='registration.html') Register
 main.row.container-fluid
-    .card-deck
-        .card.col-sm-6.container
-            .card-body
-                img.card-img-top(src='/images/team.png' alt='Card image')
-                h4.card-title Our Team
-                p.card-text
-                    | We opened our doors at AVS Vet Express in Morgantown, WV where Dr. Robert Fraley joined us in Partnership.
-                    b(style='color: darkblue')  Click button
-                    |  to learn more about our Doctors and staff who are dedicated to the &ldquo;Alpha&rdquo; way in every way!
-                a.btn.btn-primary(href='biographies.html') See Biographies
-        .card.col-sm-6.container
-            .card-body
-                h4.card-title Pet Cargo System
-                p.card-text
-                    | Pet cargo system is a new feature that is started for these quarantine days. we hope that this will be a tradition to cargo your pets to us safely and save your precious time.
-                    b(style='color: darkblue') Click Button
-                    |  to get more
-                    |         information about pet cargo system
-                a.btn.btn-primary(href='cargopet.html') Click For details
-                img.card-img-bottom(src='/images/team2.png' alt='Card image')
+    .col-sm-4
+    form.col-sm-4(target='_self' action='response.html')
+        h2.text-center Contact Us!
+        .form-group
+            label(for='name')
+            input#name.form-control(name='name' placeholder='name' required='')
+        .form-group
+            label(for='surname')
+            input#surname.form-control(name='surname' placeholder='Surname' required='')
+        .form-group
+            label(for='email')
+            input#email.form-control(name='email' placeholder='email' type='email' required='')
+        .form-group
+            label(for='PhoneNumber')
+            input#PhoneNumber.form-control(name='PhoneNumber' placeholder='Phone Number(11 number Required!)' type='number' max='99999999999' required='')
+        .form-group
+            label(for='Problem')
+            input#Problem.form-control(name='Problem' placeholder='Problem')
+        .form-group
+            label What Kind Of Animal has issue?
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='radio' value='dog' name='issue')
+                    | DOG
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='radio' value='cat' name='issue')
+                    | CAT
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='radio' value='bird' name='issue')
+                    | BIRD
+            .form-check
+                label.form-check-label
+                    input.form-check-input(type='radio' value='other' name='issue')
+                    | OTHER
+        .form-group
+            label(for='Message')
+            textarea#Message.form-control(rows='7' name='message' placeholder='Message')
+        .form-group
+            label
+                input.btn.btn-primary.text-center.form-control(type='submit' value='submit')
 // Footer
 footer.page-footer.font-small.indigo
     form(style='text-align: center')
