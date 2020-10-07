@@ -12,6 +12,8 @@ var app = express();
 require("./routes/about/about")(app);
 require("./routes/contact/contact")(app);
 require("./routes/services/services")(app);
+require("./routes/blog/blog")(app);
+
 
 // view engine setup
 app.use(express.static(__dirname + '/public'));
