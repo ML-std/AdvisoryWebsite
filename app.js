@@ -29,7 +29,7 @@ app.use('/',indexRouter );
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
+app.disable('etag');
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
