@@ -13,6 +13,8 @@ require("./routes/about/about")(app);
 require("./routes/contact/contact")(app);
 require("./routes/services/services")(app);
 require("./routes/blog/blog")(app);
+require("./routes/contact/freeConsultation")(app);
+
 
 
 // view engine setup

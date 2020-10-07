@@ -2,7 +2,7 @@
 
 $(function () {
 
-    var tags = ["Contact","Market Analysis","Account Advisor","General Consultancy","Structured Assessments"];
+    var tags = ["Contact Us","Market Analysis","Account Advisor","General Consultancy","Structured Assessments"];
 
             tags = [...tags];
             $("#autoComplete").autocomplete({
@@ -32,20 +32,45 @@ $(function() {
     });
 });
 $(function () {
+
 $("#searchButton").click(function () {
-    var searchInput = $("#autoComplete").val();
+    let searchInput = $("#autoComplete").val();
     switch(searchInput) {
-        case "Contact":
-           alert('contatc go');
+        case "Contact Us":
+          doAction("/Contact");
+            break;
+        case "about Us" :
+            break;
+        case "Services" :
+            break;
+        case "Free Consulting" :
+            doAction("#Consulting");
+            break;
+        case "Market Analysis":
+            break;
+        case "Account Advisor":
+            break;
+        case "General Consultancy":
+            break;
+        case "Structured Assessments":
             break;
 
-            break;
         default:
-        // code block
+       alert("No search found accordingly.")
     }
 });
 });
 
+function doAction(goTo)
+{
+    console.log(goTo);
+    let form=document.getElementById('searchForm');
+    form.target='_self';
+    form.action=goTo;
+
+
+
+}
 
 
 
