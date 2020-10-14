@@ -3,8 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mysql = require('mysql')
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'advisory'
+})
 
-routes = require('./routes')
 
 
 var indexRouter = require('./routes/index.js');
@@ -13,8 +19,7 @@ require("./routes/about/about")(app);
 require("./routes/contact/contact")(app);
 require("./routes/services/services")(app);
 require("./routes/blog/blog")(app);
-require("./routes/contact/freeConsultation")(app);
-
+require("./routes/contact/consultation")(app);
 
 
 // view engine setup
@@ -29,6 +34,42 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',indexRouter );
+app.post("/consultation", function(req, res) {
+  console.log('lol');
+  let name = "'" + req.body.name + "'";
+  let email = "'"   + "'";
+  let subject = "'"  + "'";
+  let message = "'"  + "'";
+  let values = name + "," + email +"," +subject + "," + message;
+  console.log(values);
+
+  connection.query('INSERT INTO `advisory`.`contact` (`Client_Name`, `Client_Mail`, `Subject`, `Message`) VALUES ('+values + ');', function (err, rows, fields) {
+    if (err)  if (err) {
+      console.log("gg")
+      res.send(JSON.stringify(err), {
+        'Content-Type': 'application/json'
+      }, 404);
+    }
+  });
+  res.status(204).send();
+
+});
+
+app.post("/subscription", function (request,response) {
+let subscriptionEmail = "'" + request.body.subEmail + "'";
+console.log(subscriptionEmail);
+  connection.query('INSERT INTO `advisory`.`subscription` (`Email`) VALUES ('+ subscriptionEmail + ');', function (err, rows, fields) {
+    if (err)  if (err) {
+      console.log("gg")
+      res.send(JSON.stringify(err), {
+        'Content-Type': 'application/json'
+      }, 404);
+    }
+  });
+  response.status(204).send();
+
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
