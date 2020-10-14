@@ -55,7 +55,7 @@ $("#searchButton").click(function () {
             doAction("#Advisory");
             break;
         case "General Consultancy":
-            doAction("#Consultancy");
+            doAction("/?#Consultancy");
             break;
         case "Structured Assessments":
             doAction("#Assessment");
