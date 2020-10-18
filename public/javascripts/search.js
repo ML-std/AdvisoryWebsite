@@ -46,19 +46,19 @@ $("#searchButton").click(function () {
             doAction("/Services")
             break;
         case "Free consultation" :
-            doAction("#Consultation");
+            doAction("/?#Consultation");
             break;
         case "Market Analysis":
-            doAction("#Analysis");
+            doAction("/?#Analysis");
             break;
         case "Account Advisor":
-            doAction("#Advisory");
+            doAction("/?#Advisory");
             break;
         case "General Consultancy":
             doAction("/?#Consultancy");
             break;
         case "Structured Assessments":
-            doAction("#Assessment");
+            doAction("/?#Assessment");
             break;
 
         default:
