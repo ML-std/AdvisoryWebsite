@@ -531,9 +531,15 @@
             </div>
             <div class="col-md-5 d-flex align-items-center">
                 <form method="post" action="/subscription" class="subscribe-form">
+                    <% if (isSubscribed) { %>
+                        <div class="alert alert-success" role="alert" id="success_message"> Success
+                            <i class="glyphicon glyphicon-thumbs-up" ></i> Thanks for contacting us, we will get back to you shortly.
+                        </div>
+                    <% } %>
                     <div class="form-group d-flex">
                         <input id="subEmail" name="subEmail" type="text" class="form-control" placeholder="Enter email address">
-                        <input type="submit" value="Subscribe" class="submit px-3">
+                        <input  type="submit" value="Subscribe" class="submit px-3">
+                        <input id="subsPage" name="subsPage" value="index" style="display: none" >
                     </div>
                 </form>
             </div>

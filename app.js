@@ -54,7 +54,8 @@ app.post("/consultation", function(req, res) {
     }
     else{
       res.render(pageName,{
-      isSubmitted : true
+        isSubmitted : true,
+        isSubscribed : false
     });
   }});
 
@@ -65,6 +66,7 @@ app.post("/subscription", function (request,response) {
   let subscriptionEmail = "'" + request.body.subEmail + "'";
   console.log(subscriptionEmail);
   let pageName = "" + request.body.subsPage;
+  console.log(pageName)
   connection.query('INSERT INTO `advisory`.`subscription` (`Email`) VALUES ('+ subscriptionEmail + ');', function (err, rows, fields) {
     if (err) {
       console.log("gg")
@@ -74,7 +76,9 @@ app.post("/subscription", function (request,response) {
     }
     else {
       response.render(pageName,{
+        isSubmitted : false,
         isSubscribed : true
+
       });
     }
   });
