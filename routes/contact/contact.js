@@ -1,6 +1,9 @@
 module.exports = function(app)
 {
     app.get("/contact", function(req, res) {
-        res.render('contact');
+        res.render('contact',{
+            isSubmitted:false,
+            isSubscribed:false
+        });
     });
 }

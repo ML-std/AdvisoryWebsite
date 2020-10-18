@@ -37,36 +37,48 @@ app.use('/',indexRouter );
 app.post("/consultation", function(req, res) {
   console.log('lol');
   let name = "'" + req.body.name + "'";
-  let email = "'"   + "'";
-  let subject = "'"  + "'";
-  let message = "'"  + "'";
+  let email = "'" + req.body.email  + "'";
+  let subject = "'" + req.body.subject + "'";
+  let message = "'" + req.body.message + "'";
+  let pageName = "" + req.body.pageName;
+  console.log(pageName);
   let values = name + "," + email +"," +subject + "," + message;
   console.log(values);
 
   connection.query('INSERT INTO `advisory`.`contact` (`Client_Name`, `Client_Mail`, `Subject`, `Message`) VALUES ('+values + ');', function (err, rows, fields) {
-    if (err)  if (err) {
+    if (err) {
       console.log("gg")
       res.send(JSON.stringify(err), {
         'Content-Type': 'application/json'
       }, 404);
     }
-  });
-  res.status(204).send();
+    else{
+      res.render(pageName,{
+      isSubmitted : true
+    });
+  }});
+
 
 });
 
 app.post("/subscription", function (request,response) {
-let subscriptionEmail = "'" + request.body.subEmail + "'";
-console.log(subscriptionEmail);
+  let subscriptionEmail = "'" + request.body.subEmail + "'";
+  console.log(subscriptionEmail);
+  let pageName = "" + request.body.subsPage;
   connection.query('INSERT INTO `advisory`.`subscription` (`Email`) VALUES ('+ subscriptionEmail + ');', function (err, rows, fields) {
-    if (err)  if (err) {
+    if (err) {
       console.log("gg")
-      res.send(JSON.stringify(err), {
+      response.send(JSON.stringify(err), {
         'Content-Type': 'application/json'
       }, 404);
     }
+    else {
+      response.render(pageName,{
+        isSubscribed : true
+      });
+    }
   });
-  response.status(204).send();
+
 
 });
 
@@ -87,3 +99,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
